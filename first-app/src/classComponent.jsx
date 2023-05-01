@@ -4,7 +4,7 @@ class ClassComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      text: "kushal sadashiv baragi",
+      text: "kushal baragi",
       count: 0,
     };
   }

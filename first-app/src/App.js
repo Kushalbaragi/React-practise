@@ -6,8 +6,8 @@ import FunctionComponent from './functionComponent';
 function App() {
   return (
     <React.Fragment>
-   <ClassComponent  name='kushal1' lastname='Baragi2'/>
-   <FunctionComponent  name='kushal' lastname='Baragi'/>
+   {/* <ClassComponent  name='kushal1' lastname='Baragi2'/>
+   <FunctionComponent  name='kushal' lastname='Baragi'/> */}
     </React.Fragment>
     
   );
