@@ -6,6 +6,7 @@ import ClickEvent from './clickEvent';
 import EventBind from './eventBind';
 import ClassComponent1 from './ClassComponet1';
 import MethodProps from './MethodsProps';
+import Condition from './Condition';
 
 function App() {
   let a=10;
@@ -25,7 +26,9 @@ function App() {
    }}>click me to add component</button> */}
    {/* <ClassComponent1/> */}
 
-   <MethodProps/>
+   {/* <MethodProps/> */}
+
+   <Condition/>
 
     </>
     
