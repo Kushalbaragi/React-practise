@@ -7,17 +7,15 @@ import EventBind from './eventBind';
 import ClassComponent1 from './ClassComponet1';
 import MethodProps from './MethodsProps';
 import Condition from './Condition';
+import ListRendering from './ListRendering';
+import index from './index.module.css';
 
 function App() {
-  let a=10;
-  function cccc(num1= 2, num2=4){
-      console.log(num1+num2);
-    }
- 
   return (
 
     
     <>
+    <h1 class={index.primary} >Hello css</h1>
    {/* <ClassComponent  name='kushal1' lastname='Baragi2'/>
    <FunctionComponent  name='kushal' lastname='Baragi'/> */}
    {/* <ClickEvent /> */}
@@ -28,7 +26,8 @@ function App() {
 
    {/* <MethodProps/> */}
 
-   <Condition/>
+   {/* <Condition/>x */}
+   <ListRendering/>
 
     </>
     
