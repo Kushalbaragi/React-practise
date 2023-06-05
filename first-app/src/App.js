@@ -9,13 +9,16 @@ import MethodProps from './MethodsProps';
 import Condition from './Condition';
 import ListRendering from './ListRendering';
 import index from './index.module.css';
+import '../src/style.css'
+import { FormHandling } from './formHnadling';
 
 function App() {
+
   return (
 
     
     <>
-    <h1 class={index.primary} >Hello css</h1>
+  
    {/* <ClassComponent  name='kushal1' lastname='Baragi2'/>
    <FunctionComponent  name='kushal' lastname='Baragi'/> */}
    {/* <ClickEvent /> */}
@@ -27,7 +30,8 @@ function App() {
    {/* <MethodProps/> */}
 
    {/* <Condition/>x */}
-   <ListRendering/>
+   {/* <ListRendering/> */}
+  <FormHandling/>
 
     </>
     

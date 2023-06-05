@@ -8,7 +8,14 @@ class ClassComponent extends React.Component {
       count: 0,
     };
   }
+  static getDerivedStateFromClass(){
+    console.log('derived from class');
+    
+  }
   change() {
+
+    
+    
     this.setState({
       text: "name has changed",
       count: this.state.count + 1,

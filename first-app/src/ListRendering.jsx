@@ -1,51 +1,69 @@
-import React, {useState} from 'react'
-import './style.css';
+import React, { useEffect, useState } from "react";
 
 function ListRendering() {
-    let [names, setNames]=useState(['kushal','sadashiv']);
+  let [data, setData] = useState([]);
 
 
-    function handlerbeg(){
-        let input=document.getElementById('input').value;
-        setNames(()=>[input,...names]);
-    }
-    function handlerend(){
-        let input=document.getElementById('input').value;
-        setNames(()=>[...names,input]);
-    }
-    let sort=()=>{
-        let arr=[...names];
-        for(let i=0; i<arr.length-1;i++){
-            for(let j=0;j<arr.length-1-i;j++){
-                if(arr[j]>arr[j+1]){
-                    let temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-                }
-            }
-        }
-        setNames(arr);
 
+useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => response.json())
+    .then((data) => setData(data))
+    .catch((err) => console.log(err));
+},[])
+    function handler(e){
+        console.log(e);
+        let newarr=data.filter(ele=>ele.id!==e);
+        console.log(newarr);
+        console.log(data);
+        setData([...newarr]);
     }
- let kkk={
-    color:'blue',
-    bacckgroundColor:'black',
-    fontSize:'42px'
- }
+
+    // localStorage.setItem('name','kushal baragi');
+    // localStorage.setItem('password','Tiger@9845');
+
+    // console.log(localStorage.getItem('name'));
+    // console.log(localStorage.getItem('password'));
+
+    // // let pass=prompt('enter new password');
+
+    // // localStorage.setItem("password",pass);
+    // // console.log("your new password" + localStorage.getItem('password'));
+    // console.log(localStorage.name);
+    
+    
+document.cookie='name=kushal baragi';
+document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00";
+
+console.log(document.cookie);
+
+
+
 
   return (
-    <>
-    <div>
-        {
-            names.map(name=><h1 key={name}>{name}</h1>)
-        }
-    </div>
-    <input class='primary' id='input' type='text' defaultValue='savita'/>
-    <button onClick={handlerbeg}>click to add begining</button>
-    <button onClick={handlerend}>click to add end</button>
-    <button onClick={sort}>click to sort by names</button>
-    </>
-  )
+    <table>
+        <thead>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>body</th>
+      </tr>
+      </thead>
+      <tbody>
+      {
+        data.map(value=>{
+           return <tr key={value.id}>
+                    <td onClick={()=>handler(value.id)}>{value.id}</td>
+                    <td onClick={()=>handler(value.id)}> {value.title}</td>
+                    <td onClick={()=>handler(value.id)}>{value.body}</td>
+           </tr>
+
+        })
+      }
+      </tbody>
+
+    </table>
+  );
 }
 
-export default ListRendering
+export default ListRendering;
