@@ -1,29 +1,50 @@
-import React from "react";
-import { Component } from "react";
+import React, { Component } from "react";
 
 export class FormHandling extends Component {
   constructor(props) {
     super(props);
-    this.State = {
-      name: "b",
+    this.state = {
+      count: 0,
     };
+    console.log("constructor");
   }
-  handler(e){
-this.setState({
-    name : e.target.value
-})
+  componentDidMount() {
+    console.log("component did mount");
+  }
+  static getDerivedStateFromProps() {
+    console.log("get derived state from props");
+    return null;
+  }
+  shouldComponentUpdate(a, b) {
+    console.log(a, b);
+    console.log("shouldComponentUpdate");
+    return true;
+  }
+  static getDerivedStateFromProps(a,b) {
+    console.log(a, b);
+
+    console.log("get derived state from ff");
+    return null;
+  }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log(prevProps);
+    console.log(prevState);
+    console.log("getSnapshotBeforeUpdate");
+    return null
   }
 
-  
   render() {
-    console.log(this.State.name);
     return (
-      <div className="container">
-        <h1>Fill the form</h1>
-        <label> Name : 
-        <input type="text" value={this.State.name} onChange={this.handler.bind(this)}/>
-        </label>
-      </div>
+      <>
+        <h1>{this.state.count}</h1>
+        <button
+          onClick={() => {
+            this.setState({ count: this.state.count + 1 });
+          }}
+        >
+          Click me
+        </button>
+      </>
     );
   }
 }

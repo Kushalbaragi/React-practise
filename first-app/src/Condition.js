@@ -1,18 +1,31 @@
-import React, { useState } from 'react'
+import PropTypes from "prop-types";
+import React, { Component, useEffect, useState } from "react";
 
 function Condition() {
-    const [count, setCount]=useState(false); 
-    if(count){
-        return (
-            <div>Condition true</div>
-          )
+  let [count, setCount] = useState({
+    name: "kushal",
+    age: 26,
+  });
+
+  useEffect(()=>{
+    console.log('USEEEFECT');
+    return ()=>{
+        console.log('use effect return');
     }
-    else{
-        return (
-            <div>Condition false</div>
-          )
-    }
-  
+  },[])
+  function handler() {
+    setCount({...count,name:'blue'});
+  }
+  console.log(count);
+
+  return (
+    <>
+      <div>
+        {count.name} {count.age}
+      </div>
+      <button onClick={handler}>click</button>
+    </>
+  );
 }
 
-export default Condition
+export default Condition;

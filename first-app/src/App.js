@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Hello from './hello';
 import ClassComponent from './classComponent';
 import FunctionComponent from './functionComponent';
@@ -13,6 +13,9 @@ import '../src/style.css'
 import { FormHandling } from './formHnadling';
 
 function App() {
+
+  let [value,setValue]=useState(0);
+
 
   return (
 
@@ -29,9 +32,9 @@ function App() {
 
    {/* <MethodProps/> */}
 
-   {/* <Condition/>x */}
+   <Condition/>
    {/* <ListRendering/> */}
-  <FormHandling/>
+  {/* <FormHandling value={value}/> */}
 
     </>
     
